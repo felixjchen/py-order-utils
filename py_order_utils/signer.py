@@ -1,4 +1,4 @@
-from eth_account import Account
+# from eth_account import Account
 
 
 class Signer:
@@ -8,13 +8,13 @@ class Signer:
 
     def __init__(self, key: str):
         self._key = key
-        self.account = Account.from_key(key)
+        # self.account = Account.from_key(key)
 
     def sign(self, struct_hash) -> str:
         """
         Signs an EIP712 struct hash
         """
-        return Account._sign_hash(struct_hash, self._key).signature.hex()
+        print("python-order-utils sign is not supposed to be called.")
 
     def address(self) -> str:
         return self.account.address

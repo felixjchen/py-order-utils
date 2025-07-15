@@ -16,7 +16,6 @@ setuptools.setup(
     url="https://github.com/polymarket/python-order-utils",
     install_requires=[
         "eth-utils>=4.1.1",
-        "eth-account>=0.13.0",
         "poly-eip712-structs",
         "pytest",
     ],
