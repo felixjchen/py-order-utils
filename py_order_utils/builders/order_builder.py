@@ -55,18 +55,18 @@ class OrderBuilder(BaseBuilder):
             signatureType=int(data.signatureType),
         )
 
-    def build_order_signature(self, _order: Order) -> str:
+    async def build_order_signature(self, _order: Order) -> str:
         """
         Signs the order
         """
-        return prepend_zx(self.sign(self._create_struct_hash(_order)))
+        return prepend_zx(await self.sign(self._create_struct_hash(_order)))
 
-    def build_signed_order(self, data: OrderData) -> SignedOrder:
+    async def build_signed_order(self, data: OrderData) -> SignedOrder:
         """
         Helper function to build and sign a order
         """
         order = self.build_order(data)
-        sig = self.build_order_signature(order)
+        sig = await self.build_order_signature(order)
 
         return SignedOrder(order, sig)
 

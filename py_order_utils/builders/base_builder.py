@@ -34,8 +34,8 @@ class BaseBuilder:
             keccak(order.signable_bytes(domain=self.domain_separator)).hex()
         )
 
-    def sign(self, struct_hash):
+    async def sign(self, struct_hash):
         """
         Signs the struct hash
         """
-        return self.signer.sign(struct_hash)
+        return await self.signer.sign(struct_hash)

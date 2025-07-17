@@ -10,7 +10,7 @@ class Signer:
         self._key = key
         # self.account = Account.from_key(key)
 
-    def sign(self, struct_hash) -> str:
+    async def sign(self, struct_hash) -> str:
         """
         Signs an EIP712 struct hash
         """
